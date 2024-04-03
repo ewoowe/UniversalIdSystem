@@ -1,0 +1,205 @@
+{
+  "name": "uid",
+  "description": "uid generator function",
+  "root": {
+    "typeLength": 2,
+    "values": {
+      "01": {
+        "type": "NOKIA",
+        "label": "诺基亚",
+        "idLength": 0,
+        "typeLength": 2,
+        "values": {
+          "01": {
+            "type": "_4GC",
+            "label": "4G核心网",
+            "idLength": 1,
+            "defaultId": "1",
+            "typeLength": 2,
+            "values": {
+              "01": {
+                "type": "MME",
+                "label": "MME",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1"
+              }
+            }
+          },
+          "02": {
+            "type": "_5GC",
+            "label": "5G核心网",
+            "idLength": 1,
+            "defaultId": "1",
+            "typeLength": 2,
+            "values": {
+              "01": {
+                "type": "AMF",
+                "label": "AMF",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1"
+              }
+            }
+          },
+          "03": {
+            "type": "ENB",
+            "label": "4G基站",
+            "idLength": 3,
+            "typeLength": 1,
+            "values": {
+              "1": {
+                "type": "CELL",
+                "label": "小区",
+                "idLength": 2
+              }
+            }
+          },
+          "04": {
+            "type": "GNB",
+            "label": "5G基站",
+            "idLength": 3,
+            "typeLength": 1,
+            "values": {
+              "1": {
+                "type": "CUCP",
+                "label": "CUCP",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1",
+                "typeLength": 1,
+                "values": {
+                  "1": {
+                    "type": "CELL",
+                    "label": "CU小区",
+                    "idLength": 2
+                  }
+                }
+              },
+              "2": {
+                "type": "CUUP",
+                "label": "CUUP",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1"
+              },
+              "3": {
+                "type": "DU",
+                "label": "DU",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1",
+                "typeLength": 1,
+                "values": {
+                  "1": {
+                    "type": "CELL",
+                    "label": "DU小区",
+                    "idLength": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "02": {
+        "type": "ICTNJ",
+        "label": "南研院自研",
+        "idLength": 0,
+        "typeLength": 2,
+        "values": {
+          "01": {
+            "type": "_4GC",
+            "label": "4G核心网",
+            "idLength": 1,
+            "defaultId": "1",
+            "typeLength": 2,
+            "values": {
+              "01": {
+                "type": "MME",
+                "label": "MME",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1"
+              }
+            }
+          },
+          "02": {
+            "type": "_5GC",
+            "label": "5G核心网",
+            "idLength": 1,
+            "defaultId": "1",
+            "typeLength": 2,
+            "values": {
+              "01": {
+                "type": "AMF",
+                "label": "AMF",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1"
+              }
+            }
+          },
+          "03": {
+            "type": "ENB",
+            "label": "4G基站",
+            "idLength": 3,
+            "typeLength": 1,
+            "values": {
+              "1": {
+                "type": "CELL",
+                "label": "小区",
+                "idLength": 2
+              }
+            }
+          },
+          "04": {
+            "type": "GNB",
+            "label": "5G核心网",
+            "idLength": 3,
+            "typeLength": 1,
+            "values": {
+              "1": {
+                "type": "CUCP",
+                "label": "CUCP",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1",
+                "typeLength": 1,
+                "values": {
+                  "1": {
+                    "type": "CELL",
+                    "label": "CU小区",
+                    "idLength": 2
+                  }
+                }
+              },
+              "2": {
+                "type": "CUUP",
+                "label": "CUUP",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1"
+              },
+              "3": {
+                "type": "DU",
+                "label": "DU",
+                "idLength": 1,
+                "viewNoId": true,
+                "defaultId": "1",
+                "typeLength": 1,
+                "values": {
+                  "1": {
+                    "type": "CELL",
+                    "label": "DU小区",
+                    "idLength": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
