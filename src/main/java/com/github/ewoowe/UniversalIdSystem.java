@@ -24,9 +24,14 @@ public class UniversalIdSystem {
             allLines.forEach(sb::append);
             ObjectMapper mapper = new ObjectMapper();
             uidSchema = mapper.readValue(sb.toString(), UidSchema.class);
+            selfCheck();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new UidException(e.getMessage());
         }
+    }
+
+    private void selfCheck() throws UidException {
+        // todo check schema json valid
     }
 
     private Pair<String, NodeType> getNodeType(String type, Map<String, NodeType> values) {
@@ -109,5 +114,31 @@ public class UniversalIdSystem {
         if (typeIdNotExist(rootTypeId, values))
             throw new UidException("uid invalid, type id not exist");
         return getUid(uid, rootTypeLength, values.get(rootTypeId), type, id);
+    }
+
+    public Pair<String, String> getTypeId(String uid) throws UidException {
+        Root root = uidSchema.getRoot();
+        Integer typeLength = root.getTypeLength();
+        return getTypeId(uid, 0, typeLength, root.getValues());
+    }
+
+    private Pair<String, String> getTypeId(String uid, int index, int typeLength, Map<String, NodeType> map) throws UidException {
+        if (uid.length() < (index + typeLength))
+            throw new UidException("uid invalid, too short");
+        String type = uid.substring(index, index + typeLength);
+        NodeType nodeType = map.get(type);
+        if (nodeType == null)
+            throw new UidException("uid invalid, type id not exist");
+        if (uid.length() == (index + typeLength + nodeType.getIdLength())) {
+            if (nodeType.getIdLength() == 0)
+                return new MutablePair<>(nodeType.getType(), null);
+            return new MutablePair<>(nodeType.getType(), uid.substring(index + typeLength));
+        } else if (uid.length() > (index + typeLength + nodeType.getIdLength())) {
+            if (nodeType.getTypeLength() == null || nodeType.getValues() == null)
+                throw new UidException("uid invalid, too long");
+            return getTypeId(uid, index + typeLength + nodeType.getIdLength(), nodeType.getTypeLength(), nodeType.getValues());
+        } else {
+            throw new UidException("uid invalid, too short");
+        }
     }
 }
