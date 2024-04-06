@@ -31,7 +31,7 @@ public class UniversalIdSystem {
     }
 
     private void selfCheck() throws UidException {
-        // todo check schema json valid
+        uidSchema.selfCheck();
     }
 
     private Pair<String, NodeType> getNodeType(String type, Map<String, NodeType> values) {

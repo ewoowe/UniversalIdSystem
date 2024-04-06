@@ -1,5 +1,6 @@
 package com.github.ewoowe.entity;
 
+import com.github.ewoowe.UidException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +20,11 @@ public class UidSchema {
 
     @NotNull
     private Root root;
+
+    public void selfCheck() throws UidException {
+        if (root == null)
+            throw new UidException("UidSchema invalid, root cant be null");
+        root.selfCheck();
+    }
 
 }
